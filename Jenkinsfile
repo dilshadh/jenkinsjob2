@@ -8,8 +8,12 @@ pipeline {
         stage('parameters_check') {
             steps {
                 script {
-
-                    echo "Hit the second jenkins job"
+                    if (param.value1) {
+                        echo "Hit the second jenkins job from value1"
+                    }
+                    else {
+                        echo "Hit the second jenkins job from value2"
+                    }
                 }
             }
         }
