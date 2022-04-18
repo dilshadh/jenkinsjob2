@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     options {
-        copyArtifactPermission('test');
+        copyArtifactPermission('*');
     }
     parameters {
         booleanParam(name: 'value1',defaultValue: false, description: 'value1')
