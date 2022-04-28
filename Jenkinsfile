@@ -25,7 +25,7 @@ pipeline {
         always {
                 script {
                     dir("${env.logs_dir}") {
-                        archiveArtifacts artifacts: '**', allowEmptyArchive: true
+                        archiveArtifacts artifacts: '*.*', allowEmptyArchive: true
                     }
             }
         }
