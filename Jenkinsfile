@@ -22,10 +22,9 @@ pipeline {
     post {
         always {
                 script {    
-                    echo "directory is : ${env.logs_dir}"                
-                    dir("${env.logs_dir}") {
-                        archiveArtifacts artifacts: '**', allowEmptyArchive: true
-                    }
+                    echo "directory is : ${env.logs_dir}"  
+                    archiveArtifacts artifacts: '**', allowEmptyArchive: true
+
             }
         }
     }
