@@ -1,8 +1,6 @@
 pipeline {
     agent any 
-    options {
-        copyArtifactPermission('*');
-    }
+
     parameters {
         booleanParam(name: 'value1',defaultValue: false, description: 'value1')
         booleanParam(name: 'value2',defaultValue: false, description: 'value2')
@@ -23,9 +21,10 @@ pipeline {
     }
     post {
         always {
-                script {
+                script {    
+                    echo "directory is : ${env.logs_dir}"                
                     dir("${env.logs_dir}") {
-                        archiveArtifacts artifacts: '*.*', allowEmptyArchive: true
+                        archiveArtifacts artifacts: '**', allowEmptyArchive: true
                     }
             }
         }
