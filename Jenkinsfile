@@ -21,4 +21,13 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+                script {
+                    dir("${env.logs_dir}") {
+                        archiveArtifacts artifacts: '**', allowEmptyArchive: true
+                    }
+            }
+        }
+    }
 }
